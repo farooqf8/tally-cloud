@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink: #1d2b36;
+  --color-muted: #5f6f7a;
+  --color-paper: #fbfbf6;
+  --color-panel: #ffffff;
+  --color-line: #d8ddd5;
+  --color-brand: #0f5b6e;
+  --color-brand-dark: #0a4352;
+  --color-sel: #fbdc7a;
+  --color-sel-soft: #fdf1c7;
+  --color-dr: #1d4f91;
+  --color-cr: #8a3a12;
+  --color-ok: #1f7a4d;
+  --color-bad: #b42318;
+}
+
+html, body, #root { height: 100%; }
+body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); font-size: 14px; }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.hk { text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+
+/* Tally-style borderless inputs: a thin underline, highlighted when focused. */
+.tin {
+  width: 100%; background: transparent; border: 0; border-bottom: 1px solid transparent;
+  padding: 2px 4px; outline: none; font: inherit; color: inherit; min-width: 0;
+}
+.tin:hover { border-bottom-color: var(--color-line); }
+.tin:focus { background: var(--color-sel-soft); border-bottom-color: var(--color-brand); }
+.tin.num { text-align: right; }
+select.tin { cursor: pointer; }
+.tin:disabled { color: var(--color-muted); }
+
+.row-sel { background: var(--color-sel) !important; }
+.scroll-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #c7cec4; border-radius: 4px; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}
